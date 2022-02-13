@@ -81,8 +81,8 @@ while running:
     enemies.update()
 
     # Fill the screen with black
-    # screen.fill((135, 206, 250))
-    screen.blit(bg, (0, 0))
+    screen.fill((135, 206, 250))
+    # screen.blit(bg, (0, 0))
 
     # # Draw the player on the screen
     # screen.blit(player.surf, player.rect)
