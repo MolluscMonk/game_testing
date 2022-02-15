@@ -15,6 +15,10 @@ color = 0
 
 #Initialize controller
 joysticks = []
+# pygame.joystick.init()
+# init = pygame.joystick.get_init()
+# if init:
+#     print('joystick found', pygame.joystick.get_count())
 for i in range(pygame.joystick.get_count()):
     joysticks.append(pygame.joystick.Joystick(i))
 for joystick in joysticks:

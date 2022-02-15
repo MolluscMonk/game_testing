@@ -24,8 +24,10 @@ pygame.init()
 
 # Create the screen object
 # The size is determined by the constant SCREEN_WIDTH and SCREEN_HEIGHT
+
 # screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+
 # pygame.display.Info()
 
 # Create a custom event for adding a new enemy
