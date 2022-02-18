@@ -29,6 +29,10 @@ pygame.init()
 class iso:
 
     def x(self, x, y) -> int:
+        return x - y
+
+    def y(self, x, y) -> int:
+        return (x + y) / 2
 
 
 # isoX = cartX - cartY;
