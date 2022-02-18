@@ -26,6 +26,11 @@ RED =   (255,   0,   0)
 
 pygame.init()
 
+class iso:
+
+    def x(self, x, y) -> int:
+
+
 # isoX = cartX - cartY;
 # isoY = (cartX + cartY) / 2;
 
