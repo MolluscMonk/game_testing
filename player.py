@@ -17,7 +17,7 @@ from pygame.locals import (
 
 # Define a player object by extending pygame.sprite.Sprite
 # The surface drawn on the screen is now an attribute of 'player'
-class Player(pygame.sprite.Sprite):
+class Plane(pygame.sprite.Sprite):
     def __init__(self):
         # super(Player, self).__init__()
         super().__init__()

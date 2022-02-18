@@ -1,7 +1,7 @@
 # Import the pygame module
 import pygame
 import random
-from player import Player
+from player import Plane
 from enemy import Enemy
 
 # Import pygame.locals for easier access to key coordinates
@@ -35,7 +35,7 @@ ADDENEMY = pygame.USEREVENT + 1
 pygame.time.set_timer(ADDENEMY, 250)
 
 # Instantiate player. Right now, this is just a rectangle.
-player = Player()
+player = Plane()
 
 # Create groups to hold enemy sprites and all sprites
 # - enemies is used for collision detection and position updates
