@@ -1,2 +1,4 @@
 .venv
 .vscode
+__pycache__/player.cpython-39.pyc
+__pycache__/enemy.cpython-39.pyc
