@@ -52,7 +52,7 @@ def main():
 
     radius = 200
     start_loc = [300, 300]
-    steps = 100
+    steps = 4
     pi = math.pi
 
     circle = []
@@ -63,8 +63,8 @@ def main():
         point = [math.cos(rad)*radius + start_loc[0], math.sin(rad)*radius + start_loc[1]]
         circle.append(point)
 
-    for item in circle:
-        print(item)
+    # for item in circle:
+    #     print(item)
     
     game_loop(screen, circle)
 
@@ -87,6 +87,8 @@ def game_loop(screen, circle):
         pygame.draw.polygon(screen, BLACK, [[100, 150], [0, 200], [100, 250], [200, 200]], 3)
         pygame.draw.polygon(screen, BLACK, circle, 3)
 
+        circle = rotate(circle)
+
         # draws upside down T    
         # pygame.draw.rect(screen,BLUE,(395,0,10,10))
         # pygame.draw.rect(screen,BLUE,(385,10,10,10))
@@ -97,6 +99,23 @@ def game_loop(screen, circle):
         pygame.display.flip()
         
     pygame.quit()
+
+
+def rotate(circle: list) -> list:
+
+    radius = 200
+    start_loc = [300, 300]
+    steps = 4
+    pi = math.pi
+
+    # circle = []
+    # point = 
+    for i in range(steps * 2 + 1):
+        rad = (i/steps)*pi
+        # print(f'{i}/{steps} PI')
+        point = [math.cos(rad)*radius + start_loc[0], math.sin(rad)*radius + start_loc[1]]
+        circle.append(point)
+    return circle
 
 if __name__ == "__main__":
     try:
