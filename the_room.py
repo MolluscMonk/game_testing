@@ -24,17 +24,40 @@ BLUE =  (  0,   0, 255)
 GREEN = (  0, 255,   0)
 RED =   (255,   0,   0)
 
+
+class Coords:
+    # def __init__(self, x: float, y: float):
+    #     self.r = math.sqrt(x**2 + y**2)
+    #     self.theta = math.atan(y/x)
+    
+    def to_polar(self, x: float, y: float) -> tuple[float]:
+        """
+        returns radius, theta
+        """
+        return math.sqrt(x**2 + y**2), math.atan(y/x)
+
+    def to_cart(self, r: float, t: float) -> tuple[float]:
+        """
+        returns x, y
+        """
+        return r*math.cos(t), r*math.sin(t)
+    
 def main():
 
     pygame.init()
     clock = pygame.time.Clock()
     class iso:
 
-        def x(self, x, y) -> int:
-            return x - y
 
-        def y(self, x, y) -> int:
-            return (x + y) / 2
+
+    # polar = Polar(10, 10)
+    # print(polar.r)
+    # print(polar.theta)
+    coord = Coords()
+    r, t = coord.to_polar(10, 10)
+    print(r, t)
+    x, y = coord.to_cart(r, t)
+    print(x, y)
 
 
 
@@ -63,6 +86,8 @@ def main():
         point = [math.cos(rad)*radius + start_loc[0], math.sin(rad)*radius + start_loc[1]]
         circle.append(point)
 
+
+    # circle = rotate(circle)
     # for item in circle:
     #     print(item)
     
@@ -117,7 +142,38 @@ def rotate(circle: list) -> list:
     #     # print(f'{i}/{steps} PI')
     #     point = [math.cos(rad)*radius + start_loc[0], math.sin(rad)*radius + start_loc[1]]
     #     circle.append(point)
+    coord = Coords()
+    # consider changing the 0,0 of the graph
+    for i, item in enumerate(circle):
+        tmp = coord.to_polar(item[0], item[1])
+        circle[i] = [tmp[0], tmp[1]]
+
+    for i, item in enumerate(circle):
+        circle[i] = [item[0], item[1] + math.pi/16]
+
+    for i, item in enumerate(circle):
+        tmp = coord.to_cart(item[0], item[1])
+        circle[i] = [tmp[0], tmp[1]]
+
     return circle
+    
+
+
+
+
+    # radius = 200
+    # start_loc = [300, 300]
+    # steps = 4
+    # pi = math.pi
+
+    # # circle = []
+    # # point = 
+    # for i in range(steps * 2 + 1):
+    #     rad = (i/steps)*pi
+    #     # print(f'{i}/{steps} PI')
+    #     point = [math.cos(rad)*radius + start_loc[0], math.sin(rad)*radius + start_loc[1]]
+    #     circle.append(point)
+    # return circle
 
 if __name__ == "__main__":
     try:
