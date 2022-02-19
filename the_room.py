@@ -127,20 +127,6 @@ def game_loop(screen, circle, clock):
 
 def rotate(circle: list) -> list:
 
-    radius = 200
-    start_loc = [300, 300]
-    steps = 4
-    pi = math.pi
-    step = pi/100000 
-    for i, item in enumerate(circle):
-        circle[i] = [item[0]*math.cos(step), item[1]*math.sin(step)]
-    # circle = []
-    # # point = 
-    # for i in range(steps * 2 + 1):
-    #     rad = (i/steps)*pi
-    #     # print(f'{i}/{steps} PI')
-    #     point = [math.cos(rad)*radius + start_loc[0], math.sin(rad)*radius + start_loc[1]]
-    #     circle.append(point)
     coord = Coords()
     # consider changing the 0,0 of the graph
     for i, item in enumerate(circle):
@@ -154,25 +140,13 @@ def rotate(circle: list) -> list:
         tmp = coord.to_cart(item[0], item[1])
         circle[i] = [tmp[0], tmp[1]]
 
+
     return circle
     
 
 
 
 
-    # radius = 200
-    # start_loc = [300, 300]
-    # steps = 4
-    # pi = math.pi
-
-    # # circle = []
-    # # point = 
-    # for i in range(steps * 2 + 1):
-    #     rad = (i/steps)*pi
-    #     # print(f'{i}/{steps} PI')
-    #     point = [math.cos(rad)*radius + start_loc[0], math.sin(rad)*radius + start_loc[1]]
-    #     circle.append(point)
-    # return circle
 
 if __name__ == "__main__":
     try:
