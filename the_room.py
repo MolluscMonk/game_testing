@@ -27,7 +27,7 @@ RED =   (255,   0,   0)
 def main():
 
     pygame.init()
-
+    clock = pygame.time.Clock()
     class iso:
 
         def x(self, x, y) -> int:
@@ -66,10 +66,10 @@ def main():
     # for item in circle:
     #     print(item)
     
-    game_loop(screen, circle)
+    game_loop(screen, circle, clock)
 
 
-def game_loop(screen, circle):
+def game_loop(screen, circle, clock):
     running = True
     while running:
 
@@ -97,7 +97,7 @@ def game_loop(screen, circle):
 
         # Flip the display
         pygame.display.flip()
-        
+        clock.tick(0.1)
     pygame.quit()
 
 
@@ -107,14 +107,16 @@ def rotate(circle: list) -> list:
     start_loc = [300, 300]
     steps = 4
     pi = math.pi
-
+    step = pi/100000 
+    for i, item in enumerate(circle):
+        circle[i] = [item[0]*math.cos(step), item[1]*math.sin(step)]
     # circle = []
-    # point = 
-    for i in range(steps * 2 + 1):
-        rad = (i/steps)*pi
-        # print(f'{i}/{steps} PI')
-        point = [math.cos(rad)*radius + start_loc[0], math.sin(rad)*radius + start_loc[1]]
-        circle.append(point)
+    # # point = 
+    # for i in range(steps * 2 + 1):
+    #     rad = (i/steps)*pi
+    #     # print(f'{i}/{steps} PI')
+    #     point = [math.cos(rad)*radius + start_loc[0], math.sin(rad)*radius + start_loc[1]]
+    #     circle.append(point)
     return circle
 
 if __name__ == "__main__":
