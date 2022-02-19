@@ -118,7 +118,6 @@ def game_loop(screen, circle):
         # pygame.draw.rect(screen,BLUE,(395,10,10,10))
         # pygame.draw.rect(screen,BLUE,(405,10,10,10))
 
-        # Flip the display
         pygame.display.flip()
         
     pygame.quit()
