@@ -46,7 +46,7 @@ def main():
 
     pygame.init()
     clock = pygame.time.Clock()
-    class iso:
+    
 
 
 
