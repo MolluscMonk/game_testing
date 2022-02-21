@@ -67,6 +67,8 @@ def main():
 
     SCREEN_WIDTH = 800
     SCREEN_HEIGHT = 600
+    centre = SCREEN_WIDTH/2,  SCREEN_HEIGHT/2
+
 
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     # screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
@@ -74,7 +76,9 @@ def main():
     # player = Plane()
 
     radius = 200
-    start_loc = [300, 300]
+    # start_loc = [300, 300]
+    # start_loc = [centre[0] + radius, centre[1] + radius]
+    start_loc = [centre[0], centre[1]]
     steps = 4
     pi = math.pi
 
@@ -91,10 +95,10 @@ def main():
     # for item in circle:
     #     print(item)
     
-    game_loop(screen, circle, clock)
+    game_loop(screen, circle, clock, centre)
 
 
-def game_loop(screen, circle, clock):
+def game_loop(screen, circle, clock, centre):
     running = True
     while running:
 
@@ -112,7 +116,7 @@ def game_loop(screen, circle, clock):
         pygame.draw.polygon(screen, BLACK, [[100, 150], [0, 200], [100, 250], [200, 200]], 3)
         pygame.draw.polygon(screen, BLACK, circle, 3)
 
-        circle = rotate(circle)
+        circle = rotate(circle, centre)
 
         # draws upside down T    
         # pygame.draw.rect(screen,BLUE,(395,0,10,10))
@@ -121,11 +125,11 @@ def game_loop(screen, circle, clock):
         # pygame.draw.rect(screen,BLUE,(405,10,10,10))
 
         pygame.display.flip()
-        clock.tick(0.1)
+        clock.tick(1)
     pygame.quit()
 
 
-def rotate(circle: list) -> list:
+def rotate(circle: list, centre: tuple) -> list:
 
     coord = Coords()
     # consider changing the 0,0 of the graph
