@@ -30,17 +30,22 @@ class Coords:
     #     self.r = math.sqrt(x**2 + y**2)
     #     self.theta = math.atan(y/x)
     
-    def to_polar(self, x: float, y: float) -> tuple[float]:
+    def to_polar(self, x: float, y: float, centre) -> tuple[float]:
         """
         returns radius, theta
         """
+        x = x + centre[0]
+        y = y + centre[1]
         return math.sqrt(x**2 + y**2), math.atan(y/x)
 
-    def to_cart(self, r: float, t: float) -> tuple[float]:
+    def to_cart(self, r: float, t: float, centre) -> tuple[float]:
         """
         returns x, y
         """
-        return r*math.cos(t), r*math.sin(t)
+        x, y = r*math.cos(t), r*math.sin(t)
+        x = x - centre[0]
+        y = y - centre[1]
+        return 
     
 def main():
 
@@ -134,14 +139,14 @@ def rotate(circle: list, centre: tuple) -> list:
     coord = Coords()
     # consider changing the 0,0 of the graph
     for i, item in enumerate(circle):
-        tmp = coord.to_polar(item[0], item[1])
+        tmp = coord.to_polar(item[0], item[1], centre)
         circle[i] = [tmp[0], tmp[1]]
 
     for i, item in enumerate(circle):
         circle[i] = [item[0], item[1] + math.pi/16]
 
     for i, item in enumerate(circle):
-        tmp = coord.to_cart(item[0], item[1])
+        tmp = coord.to_cart(item[0], item[1], centre)
         circle[i] = [tmp[0], tmp[1]]
 
 
