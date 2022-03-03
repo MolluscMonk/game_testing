@@ -121,7 +121,7 @@ def game_loop(screen, circle, clock, centre):
         pygame.draw.polygon(screen, BLACK, [[100, 150], [0, 200], [100, 250], [200, 200]], 3)
         pygame.draw.polygon(screen, BLACK, circle, 3)
 
-        # circle = rotate(circle, centre)
+        circle = rotate(circle, centre)
 
         # draws upside down T    
         # pygame.draw.rect(screen,BLUE,(395,0,10,10))
