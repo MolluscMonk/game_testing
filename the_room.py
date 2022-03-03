@@ -45,7 +45,7 @@ class Coords:
         x, y = r*math.cos(t), r*math.sin(t)
         x = x - centre[0]
         y = y - centre[1]
-        return 
+        return x, y
     
 def main():
 
@@ -55,14 +55,6 @@ def main():
 
 
 
-    # polar = Polar(10, 10)
-    # print(polar.r)
-    # print(polar.theta)
-    coord = Coords()
-    r, t = coord.to_polar(10, 10)
-    print(r, t)
-    x, y = coord.to_cart(r, t)
-    print(x, y)
 
 
 
@@ -74,6 +66,14 @@ def main():
     SCREEN_HEIGHT = 600
     centre = SCREEN_WIDTH/2,  SCREEN_HEIGHT/2
 
+    # polar = Polar(10, 10)
+    # print(polar.r)
+    # print(polar.theta)
+    coord = Coords()
+    r, t = coord.to_polar(10, 10, centre)
+    print(r, t)
+    x, y = coord.to_cart(r, t, centre)
+    print(x, y)
 
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     # screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
