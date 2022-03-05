@@ -142,7 +142,7 @@ def rotate(circle: list, centre: tuple) -> list:
         tmp = coord.to_polar(item[0], item[1], centre)
         circle[i] = [tmp[0], tmp[1]]
 
-    for i, item in enumerate(circle):  # this is the issue
+    for i, item in enumerate(circle):  # this is the issue, need to find another source to help
         circle[i] = [item[0], item[1] + math.pi/16]
 
     for i, item in enumerate(circle):
